@@ -14,10 +14,10 @@ const argv = program.opts();
 
 const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
-    case "read":
+    case "list":
       const allContacts = await contacts.listContacts();
       return console.table(allContacts);
-    case "getById":
+    case "get":
       const oneContact = await contacts.getContactById(id);
       return console.log(oneContact);
     case "add":
@@ -29,6 +29,4 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
   }
 };
 
-// invokeAction({ action: "add", email: "pre@adsf", name: "Vova", phone: 095 });
-console.log(argv);
 invokeAction(argv);
